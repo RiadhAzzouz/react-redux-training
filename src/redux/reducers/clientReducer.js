@@ -8,8 +8,8 @@ const clientReducer = (state=initialState, action) => {
     switch(action.type) {
     
         case ActionTypes.ADD_CLIENT:
-            let newClientsList = state.clients.push(action.payload);
-            return {...state, clients: newClientsList};
+            state.clients.push(action.payload);
+            return {...state};
             
         case ActionTypes.DELETE_CLIENT:
             let newList = state.clients.map((client, index) => {

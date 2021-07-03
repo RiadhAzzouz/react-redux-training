@@ -1,11 +1,10 @@
 import { ActionTypes } from './constatnts';
 import clientApi from '../../apis/clientApi';
 
-export const addClient = (client) => {
-    return {
-        type: ActionTypes.ADD_CLIENT,
-        payload: client
-    };
+export const addClient = (client) => async (dispatch) => {
+    const response = await clientApi.post('/add', client);
+    console.log("response " + response + " data " + response.data);
+    dispatch({type: ActionTypes.ADD_CLIENT, payload: response.data});
 };
 
 export const deleteClient = (idClient) => {

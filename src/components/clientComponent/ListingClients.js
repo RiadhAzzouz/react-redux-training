@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { listClients } from '../../redux/actions/clientActions';
 import ClientComponent from './ClientComponent';
+import * as Icon from 'react-bootstrap-icons';
+import { Link } from "react-router-dom";
 
 const ListingClients = () => {
 
@@ -13,7 +15,7 @@ const ListingClients = () => {
 
     return(
         <div>
-             <table class="table">
+             <table className="table">
                 <thead>
                     <tr>
                         <th scope="col">Client Name</th>
@@ -27,6 +29,7 @@ const ListingClients = () => {
                     <ClientComponent />
                 </tbody>
              </table>
+             <Link to={"/addClient"}><Icon.PersonPlusFill />Add Client</Link>
         </div>
     );
 
