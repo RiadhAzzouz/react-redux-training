@@ -7,15 +7,13 @@ export const addClient = (client) => async (dispatch) => {
 };
 
 export const deleteClient = (idClient) => async (dispatch) => {
-    const response = await clientApi.delete('/delete/'+idClient);
+    await clientApi.delete('/delete/'+idClient);
     dispatch({type: ActionTypes.DELETE_CLIENT, payload: idClient});
 };
 
-export const updateClient = (client) => {
-    return {
-        type: ActionTypes.UPDATE_CLIENT,
-        payload: client
-    };
+export const updateClient = (client) => async (dispatch) => {
+    const response = await clientApi.put('/update', client);
+    dispatch({type: ActionTypes.UPDATE_CLIENT, payload: response.data});
 };
 
 export const listClients = () => async (dispatch) => {

@@ -9,6 +9,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={ListingClients} />
+          <Route path="/addClient/:clientID" component={AddClient} />
           <Route path="/addClient" component={AddClient} />
         </Switch>
       </Router>
